@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t maartenhandels/docker-react-test -f Dockerfile.dev .
+
+script:
+  - docker run maartenhandels/docker-react-test npm run test -- --coverage
